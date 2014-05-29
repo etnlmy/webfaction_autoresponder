@@ -1,5 +1,8 @@
-require 'sinatra'
-require 'sinatra/flash'
+require 'rubygems'
+require 'bundler'
+
+Bundler.require
+
 require './app.rb'
 require './webfaction/endpoint.rb'
 

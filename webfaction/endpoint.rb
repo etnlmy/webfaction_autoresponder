@@ -2,7 +2,6 @@ require 'xmlrpc/client'
 require 'net/imap'
 require 'yaml'
 
-
 module WebFaction
   class Endpoint
        
