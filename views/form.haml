@@ -1,0 +1,58 @@
+%nav{class: "top-bar", "data-topbar" => true}
+  %ul{class: "title-area"}
+    %li{class: "name"}
+      %h1
+        %a Auto-responder configuration
+      %li{class: "toggle-topbar menu-icon"}
+        %a
+
+  %section{class: "top-bar-section"}
+    %ul{class: "right"}
+      %li
+        %a{href: "/logout"} Logout
+
+%form{action: "", method: "post"}
+
+  %div{class: "row"}
+    %div{class: "small-12 medium-12 large-8 columns medium-centered large-centered"}
+
+      %br
+      %h4= "Configure the auto-responder for #{@email}"
+      %br
+
+      - if flash[:error]
+        %div{class: "row"} 
+          %div{ "data-alert" => true, class: "alert-box alert"} 
+            = flash[:error]
+            %a{href: "#", class: "close"} &times;
+
+      - if flash[:success]
+        %div{class: "row"} 
+          %div{ "data-alert" => true, class: "alert-box success"} 
+            = flash[:success]
+            %a{href: "#", class: "close"} &times;
+
+      %div{class: "panel callout radius"}      
+        %div{class: "row"}
+          %div{class: "small-6 columns"}
+            %label Activate:
+            %input{type: "radio", name: "activate", id: "onButton", value: "on", checked: @settings["autoresponder_on"] == 1}
+              %label{for: "onButton"} Yes
+            %input{type: "radio", name: "activate", id: "offButton", value: "off", checked: @settings["autoresponder_on"] == 0}
+              %label{for: "offButton"} No
+
+        %div{id: "subject-and-message"}
+          %div{class: "row"}
+            %div{class: "small-12 medium-8 large-10 columns"}
+              %label Subject:
+              %input{type: "text", name: "subject", class: "text", value: @settings["autoresponder_subject"]}
+
+          %div{class: "row"}
+            %div{class: "small-12 medium-8 large-10 columns"}
+              %label Message:
+              %textarea{name: "body", rows: "16"}
+                = n2r(@settings["autoresponder_message"])
+
+        %div{class: "row"}
+          %div{class: "small-3 columns"}
+            %input{type: "submit", value: "Save", class: "button round"}
