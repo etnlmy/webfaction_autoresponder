@@ -5,4 +5,6 @@ But what if your email users want to modify their own settings, such as the auto
 
 This Sinatra app addresses this issue by providing a small interface to edit the auto-responder settings.
 
+The users can login via their IMAP credentials and by providing the email address they want to manage.
+
 # Installation on Webfaction
