@@ -1,4 +1,4 @@
-%form{action: "/login", method: "post"}
+%form{action: "/login", method: "post", "data-abide" => true}
 
   %div{class: "row"}
     %div{class: "small-12 medium-8 large-4 medium-centered large-centered columns", id: "login"}
@@ -15,19 +15,22 @@
           %div{class: "small-3 columns"} 
             %label{for: "username", class: "right inline"} Mailbox:
           %div{class: "small-9 columns"}   
-            %input{type: "text", id: "username", name: "username", placeholder: "mailbox name"}
+            %input{type: "text", id: "username", name: "username", placeholder: "mailbox name", "required" => true}
+            %small{class: "error"} The mailbox name is required.
 
         %div{class: "row"}
           %div{class: "small-3 columns"}
             %label{for: "email", class: "right inline"} Email:
           %div{class: "small-9 columns"}
-            %input{type: "text", id: "email", name: "email", placeholder: "your email address"}
+            %input{type: "email", id: "email", name: "email", placeholder: "your email address", "required" => true}
+            %small{class: "error"} An email address is required.
 
         %div{class: "row"}
           %div{class: "small-3 columns"}
             %label{for: "password", class: "right inline"} Password:
           %div{class: "small-9 columns"}
-            %input{type: "password", id: "password", name: "password", placeholder: "your password"}
+            %input{type: "password", id: "password", name: "password", placeholder: "your password", "required" => true}
+            %small{class: "error"} The password is required.
 
         %div{class: "row"}
           %div{class: "small-12 large-centered columns"}
