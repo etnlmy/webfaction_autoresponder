@@ -87,3 +87,23 @@ webfaction_user: "username"
 webfaction_password: "password"
 ```
 You can now restart nginx by simply typing `restart` and visit your page.
+
+### Troubles
+If you get the following message when starting nginx:
+
+```
+nginx: [alert] Unable to start the Phusion Passenger watchdog because it encountered the following error during startup:
+Unable to start the Phusion Passenger helper agent: 
+it seems to have crashed during startup for an unknown reason, with exit code 1 (-1: Unknown error)
+```
+create a file called `tmp` in your home folder:
+
+```
+$ mkdir ~/tmp
+```
+
+and edit the file `~/webapps/appname/bin/start` by replacing the variable `PASSENGER_TMPDIR` with the following value (the `tmp` folder you just created):
+
+```
+PASSENGER_TMPDIR=/home/username/tmp
+```
