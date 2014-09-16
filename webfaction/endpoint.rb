@@ -30,7 +30,8 @@ module WebFaction
         @username,
         true,
         args["subject"] || "",
-        args["body"] || "")  
+        args["body"] || "",
+        @email)
     end
 
 
